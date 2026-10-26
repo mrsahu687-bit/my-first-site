@@ -3,14 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="site-background.css">
     <title>JEC</title>
     <style>
         h1{
             color: brown;
+            font-weight: bold;
+            transition: color 180ms ease;
+        }
+        h2{
+            font-family: 'Georgia', sans-serif;
+        }
+        h1:hover {
+            color: rgb(80, 155, 61);
         }
         img {
             max-width: 100%;
             height: auto;
+        }
+        .image-zoom {
+            display: inline-block;
+            max-width: 100%;
+            overflow: hidden;
+            cursor: zoom-in;
+            vertical-align: top;
+        }
+        .image-zoom img {
+            display: block;
+            transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%);
+            transition: transform 160ms ease;
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .image-zoom:hover img {
+                transform: scale(2);
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .image-zoom img {
+                transition: none;
+            }
         }
         .head{
             color: rgb(92, 21, 124);
@@ -29,12 +60,18 @@
         p{
             color: gray;
         }
-        table{
+        table {
+            width: 100%;
+            table-layout: auto;
+            border-collapse: collapse;
             border: 2px solid black;
         }
-        td{
+        th,
+        td {
             border: 2px solid black;
-            padding: 10%;
+            padding: 8px;
+            text-align: left;
+            overflow-wrap: anywhere;
         }
     </style>
 </head>
@@ -47,39 +84,57 @@
         <a href="about.html">ABOUT US</a>
     </nav>
     <br>
-    <img src="images/Screenshot 2026-10-08 145636.png" alt="JEC"><br>
+    <div class="image-zoom">
+        <img src="images/JECbuilding.jpg" alt="JEC building">
+    </div><br>
     <div class="intro">
         <p>Internet doesnt work here.....</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Employee ID</th>
-                <th>Name</th>
-                <th>Department</th>
+        <h2>About Jaipur Engineering College</h2>
+        <p>Engineering education helps students explore how ideas can solve practical problems and improve everyday life.</p>
+        <h3>Learning Through Engineering</h3>
+        <p>Students build knowledge in science, technology, design, and teamwork as they prepare for future careers.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
                 <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>#1021</td>
-                <td>Jane Doe</td>
-                <td>Engineering Department</td>
-                <td>HOD</td>
-            </tr>
-            <tr>
-                <td>#1022</td>
-                <td>John Smith</td>
-                <td>Medical</td>
-                <td>HOD</td>
-            </tr>
-            <tr>
-                <td>#1023</td>
-                <td>Alex Morgan</td>
-                <td>Marketing</td>
-                <td>SEO Specialist</td>
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#1021</td>
+                    <td>Jane Doe</td>
+                    <td>Engineering Department</td>
+                    <td>HOD</td>
+                </tr>
+                <tr>
+                    <td>#1022</td>
+                    <td>John Smith</td>
+                    <td>Medical</td>
+                    <td>HOD</td>
+                </tr>
+                <tr>
+                    <td>#1023</td>
+                    <td>Alex Morgan</td>
+                    <td>Marketing</td>
+                    <td>SEO Specialist</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <script>
+        const zoomArea = document.querySelector(".image-zoom");
+
+        zoomArea.addEventListener("pointermove", (event) => {
+            const bounds = zoomArea.getBoundingClientRect();
+            const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+            const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+
+            zoomArea.style.setProperty("--zoom-x", `${x}%`);
+            zoomArea.style.setProperty("--zoom-y", `${y}%`);
+        });
+    </script>
 </body>
 </html>
