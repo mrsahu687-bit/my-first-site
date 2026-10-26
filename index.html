@@ -5,22 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JEC</title>
     <style>
+        h1{
+            color: brown;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .head{
+            color: rgb(92, 21, 124);
+            text-align: center;
+
+        }
         .navbar {
             display: flex;
             justify-content: space-between;
             width: 100%;
         }
+
+        .intro p{
+            color: navy;
+        }
+        p{
+            color: gray;
+        }
+        table{
+            border: 2px solid black;
+        }
+        td{
+            border: 2px solid black;
+            padding: 10%;
+        }
     </style>
 </head>
 <body>
-    <h1>HOME   PAGE</h1><br>
-    <h1>JEC COLLEGE OF ENGINEERING.</h1>
+    <h1 style="text-align: center;">HOME   PAGE</h1><br>
+    <h1 class="head">JEC COLLEGE OF ENGINEERING.</h1>
     <nav class="navbar">
         <a href="courses.html">COURSES </a>
         <a href="contact.html">CONTACT </a>
         <a href="about.html">ABOUT US</a>
     </nav>
     <br>
-    <img src="images\Screenshot 2026-10-08 145636.png" alt="JEC" sizes=default>
+    <img src="images/Screenshot 2026-10-08 145636.png" alt="JEC"><br>
+    <div class="intro">
+        <p>Internet doesnt work here.....</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#1021</td>
+                <td>Jane Doe</td>
+                <td>Engineering Department</td>
+                <td>HOD</td>
+            </tr>
+            <tr>
+                <td>#1022</td>
+                <td>John Smith</td>
+                <td>Medical</td>
+                <td>HOD</td>
+            </tr>
+            <tr>
+                <td>#1023</td>
+                <td>Alex Morgan</td>
+                <td>Marketing</td>
+                <td>SEO Specialist</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
 </body>
 </html>
